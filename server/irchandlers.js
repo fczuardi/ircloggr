@@ -11,7 +11,8 @@ const   db = require("./db.js"),
 // an exported array of message handlers
 exports.handlers = [
     function(host, room, from, message, cb) {
-        if (message === 'amnesia') {
+        var is_admin = (~ config.admins.indexOf(from));
+        if ((message === 'amnesia') && is_admin){
             db.i_think_i_hit_my_head_or_something(host, room, function(ok) {
                 cb( from + ": " +
                     (ok ? "Dude, I can no longer remember the last 30 minutes, o.O" :

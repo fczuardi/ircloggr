@@ -28,6 +28,8 @@ exports.deployment_url = "http://irclog.gr";
 exports.servers = {
 };
 
+exports.admins = [];
+
 exports.parse_config_file = function() {
     // let exceptions fly
     var conf = JSON.parse(fs.readFileSync(exports.config_path));
